@@ -1,0 +1,27 @@
+version: '3'
+services:
+  docker-machine-d:
+    image: tvshow_cwraler
+    container_name : tvshow_cwraler
+    build:
+       context: .
+       dockerfile: ./Dockerfile
+    stdin_open: true
+    tty: true
+    volumes:
+      # host system env sync
+      - /etc/localtime:/etc/localtime:ro
+      - /usr/share/zoneinfo:/usr/share/zoneinfo:ro
+      # working dir
+      - ./config.json:/works/config.json
+      - /mnt:/mnt
+      # - /mnt/d/yocto-pkg-downloads:/home/${HOST_USER_NAME}/works/yocto-pkg-downloads
+    # restart: always
+    # ports:
+    #   - $DOCKER_SSH_PORT:22
+    # environment:
+    #   - TZ=Asia/Seoul
+    #   - LANG=en_US.UTF-8
+    # privileged: true
+    # cap_add:
+    #   - SYS_ADMIN

@@ -1,0 +1,23 @@
+{
+    "TRANSMISSON_CFG": {
+      "id": "your_tm_id",
+      "pass": "your_tm_pass",
+      "server_ip": "your_tm_server_ip",
+      "server_port": 9091
+    },
+    "MODEL_TORRENT_SITE_PARSE_INFO" : {
+        "mongo_uri": "mongodb+srv://your_mongo_db",
+        "target_db": "tvShowCwraler",
+        "target_document": "torrentSiteParseInfo"
+    },
+    "MODEL_TORRENT_ADDR": {
+        "mongo_uri": "mongodb+srv://your_mongo_db",
+        "target_db": "tvShowCwraler",
+        "target_document": "torrentMagnetAddr"
+    },
+    "MODEL_TORRENT_DOWN_MGR" : {
+        "mongo_uri": "mongodb+srv://your_mongo_db",
+        "target_db": "tvShowCwraler",
+        "target_document": "torrentDownMgr"
+    }
+}
