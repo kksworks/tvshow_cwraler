@@ -268,6 +268,7 @@ def tvshow_torrent_dn() -> int:
             assert len(dn_mgr_data.search_keywords) > 0
             log.log_tool.dbg(f"torrent_dn try dn : {dn_mgr_data.prog_name}")
             log.log_tool.dbg(f" -> search_keywords : {dn_mgr_data.search_keywords}")
+
             # gen base search query
             search_keywords = dn_mgr_data.search_keywords
             essential_keyword = ""
@@ -289,26 +290,25 @@ def tvshow_torrent_dn() -> int:
                 # check file infos
 
                 # resol check
-                chk_resol = False
+                is_chk_resol = False
                 if dn_mgr_data.rel_resol == "*":
-                    chk_resol = True
+                    is_chk_resol = True
                 elif tvshow_info.resol == dn_mgr_data.rel_resol:
-                    chk_resol == True
+                    is_chk_resol = True
                 else:
-                    log.log_tool.err(f"???")
-                    chk_resol == False
+                    is_chk_resol = False
 
                 # rel group check
-                chk_rel = False
+                is_chk_rel = False
                 if dn_mgr_data.rel_info == "*":
-                    chk_rel = True
+                    is_chk_rel = True
                 elif tvshow_info.rel_group == dn_mgr_data.rel_info:
-                    chk_rel == True
+                    is_chk_rel = True
                 else:
-                    chk_rel == False
+                    is_chk_rel = False
 
-                if chk_rel is not True or chk_resol is not True:
-                    log.log_tool.warn(f"skip target video infos ... chk_rel {chk_rel} / chk_resol {chk_resol}")
+                if is_chk_rel is not True or is_chk_resol is not True:
+                    log.log_tool.warn(f"skip target video infos ... chk_rel {is_chk_rel} / chk_resol {is_chk_resol}")
                     continue
 
                 # log.log_tool.err(str(tvshow_info))

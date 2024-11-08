@@ -260,8 +260,10 @@ def cwral_torrent_site_info(
                         log.log_tool.info(site_parser_data)
                         update_cnt += 1
         except Exception:
+            log.log_tool.err(f"cwral site fail : {site_parser_data}")
             continue
 
+    log.log_tool.dbg(f"update count {update_cnt}")
     return update_cnt
 
 
